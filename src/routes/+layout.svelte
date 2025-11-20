@@ -45,7 +45,9 @@
 
 {@render children()}
 
-<footer class="flex min-h-fit w-full flex-col items-center justify-center gap-4 px-12 font-sans">
+<footer
+	class="flex min-h-fit w-full flex-col items-center justify-center gap-4 px-12 pb-4 font-sans"
+>
 	<img src="https://www.rinkai.co/images/logo-b.svg" alt="Icon" class="h-8 w-fit" />
 	<div class="gap2 flex flex-col items-center text-neutral-700">
 		<a href="https://www.rinkai.co/" class="underline decoration-2 underline-offset-4"
