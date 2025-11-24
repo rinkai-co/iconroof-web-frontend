@@ -5,7 +5,7 @@ import type { NewsArticle } from '$lib/types';
 export const load: PageServerLoad = async () => {
 	const [products, banner] = await Promise.all([
 		getAllMockProductsAsync(),
-		getMockBannerAsync('preview-banner')
+		getMockBannerAsync('services-banner')
 	]);
 
 	const productNews: NewsArticle[] = products.map((product) => ({

@@ -67,3 +67,11 @@ export interface CustomerReview {
   imageUrl: string;
   linkUrl: string;
 }
+
+export interface ArticleItem {
+  id: string;
+  imageUrl: string;
+  title: string;
+  description: string;
+  linkUrl: string;
+}

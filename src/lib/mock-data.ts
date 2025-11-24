@@ -47,6 +47,30 @@ const mockBanners: Banner[] = [
 		description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
 		imageUrl: '/product/1112.webp',
 		linkUrl: '/product/amigo'
+	},
+	{
+		id: 'services-banner',
+		title: 'บริการติดตั้งครบวงจร',
+		subtitle: 'ทีมงานมืออาชีพ',
+		description: 'บริการติดตั้งระแนงและหลังคาโดยช่างผู้ชำนาญการ ประสบการณ์ยาวนาน',
+		imageUrl: '/product/1122.webp',
+		linkUrl: '/services'
+	},
+	{
+		id: 'blogs-banner',
+		title: 'บทความและสาระน่ารู้',
+		subtitle: 'อัพเดทเทรนด์ใหม่ๆ',
+		description: 'รวมบทความเกี่ยวกับบ้าน การตกแต่ง และวัสดุก่อสร้างที่น่าสนใจ',
+		imageUrl: '/1103.webp',
+		linkUrl: '/blogs'
+	},
+	{
+		id: 'preview-banner',
+		title: 'ตัวอย่างผลงาน',
+		subtitle: 'Gallery',
+		description: 'ชมภาพผลงานการติดตั้งจริงจากลูกค้าของเรา',
+		imageUrl: '/product/1125.webp',
+		linkUrl: '/preview'
 	}
 ];
 
