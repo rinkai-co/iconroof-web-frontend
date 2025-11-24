@@ -45,27 +45,85 @@
 	/>
 
 	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-TKH6XPJN');</script>
+	<script>
+		(function (w, d, s, l, i) {
+			w[l] = w[l] || [];
+			w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+			var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l != 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-TKH6XPJN');
+	</script>
 	<!-- End Google Tag Manager -->
 
 	<!-- Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-M74LW8G72T"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	  gtag('config', 'G-M74LW8G72T');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'G-M74LW8G72T');
 	</script>
 	<!-- End Google Analytics -->
+	<!-- LINE Tag Base Code -->
+	<!-- Do Not Modify -->
+	<script>
+		(function (g, d, o) {
+			g._ltq = g._ltq || [];
+			g._lt =
+				g._lt ||
+				function () {
+					g._ltq.push(arguments);
+				};
+			var h = location.protocol === 'https:' ? 'https://d.line-scdn.net' : 'http://d.line-cdn.net';
+			var s = d.createElement('script');
+			s.async = 1;
+			s.src = o || h + '/n/line_tag/public/release/v1/lt.js';
+			var t = d.getElementsByTagName('script')[0];
+			t.parentNode.insertBefore(s, t);
+		})(window, document);
+		_lt('init', {
+			customerType: 'account',
+			tagId: '4359866b-d00c-4b64-8baa-14943156976b'
+		});
+		_lt('send', 'pv', ['4359866b-d00c-4b64-8baa-14943156976b']);
+	</script>
+	<noscript>
+		<img
+			height="1"
+			width="1"
+			style="display:none"
+			src="https://tr.line.me/tag.gif?c_t=lap&t_id=4359866b-d00c-4b64-8baa-14943156976b&e=pv&noscript=1"
+		/>
+	</noscript>
+	<!-- End LINE Tag Base Code -->
+	<script>
+		_lt(
+			'send',
+			'cv',
+			{
+				type: 'Conversion'
+			},
+			['4359866b-d00c-4b64-8baa-14943156976b']
+		);
+	</script>
 </svelte:head>
 
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKH6XPJN"
-height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<noscript
+	><iframe
+		src="https://www.googletagmanager.com/ns.html?id=GTM-TKH6XPJN"
+		height="0"
+		width="0"
+		style="display:none;visibility:hidden"
+		title="Google Tag Manager"
+	></iframe></noscript
+>
 <!-- End Google Tag Manager (noscript) -->
 
 <ConditionNavbar />
