@@ -101,6 +101,7 @@
 							<Image
 								src={testimonial.imageUrl}
 								alt={testimonial.title}
+								sizes="(min-width: 768px) 66vw, 100vw"
 								class="absolute inset-0 h-full w-full object-cover brightness-60"
 							/>
 						</div>

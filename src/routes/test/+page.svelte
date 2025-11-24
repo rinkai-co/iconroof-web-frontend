@@ -22,6 +22,7 @@
     <Image
       src="/src/lib/assets/images/product/1112.webp"
       alt="ระแนงไวนิล Amigo สร้างความเป็นส่วนตัวให้กับบ้าน"
+      sizes="100vw"
       class="absolute inset-0 w-full h-full object-cover brightness-65 z-10"
     />
   </section>

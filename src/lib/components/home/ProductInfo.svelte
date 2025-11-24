@@ -34,6 +34,7 @@
         <Image
           alt="Product showcase"
           src="/src/lib/assets/images/product/test-1.jpg"
+          sizes="(min-width: 1024px) 50vw, 100vw"
           class="absolute inset-0 w-full h-full object-cover rounded-sm"
         />
       </div>

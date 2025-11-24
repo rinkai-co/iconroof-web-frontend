@@ -28,6 +28,7 @@
     <Image
       src={bannerInfo.imageUrl}
       alt={bannerInfo.title}
+      sizes="(max-width: 1280px) 100vw, 1280px"
       class="absolute inset-0 w-full h-full object-cover brightness-65 z-10 rounded-xl"
     />
   </section>

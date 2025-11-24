@@ -32,6 +32,7 @@
 	<Image
 		src={banner.imageUrl}
 		alt={banner.title}
+		sizes="100vw"
 		class="absolute inset-0 z-10 h-full w-full object-cover brightness-65"
 	/>
 </section>

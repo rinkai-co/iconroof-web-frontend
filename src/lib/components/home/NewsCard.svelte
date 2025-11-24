@@ -37,6 +37,7 @@
     <Image
         src={news.imageUrl}
         alt={news.title}
+        sizes="(min-width: 1280px) 800px, (min-width: 768px) 50vw, 100vw"
         class="absolute h-full w-full object-cover"
     />
 </div>

@@ -27,6 +27,7 @@
                     <Image
                         src={review.imageUrl}
                         alt={`Review by ${review.name}`}
+                        sizes="(min-width: 768px) 350px, 300px"
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
