@@ -1,8 +1,9 @@
 import { getAllMockProducts } from '$lib/mock-data';
+import type { RequestEvent } from './$types';
 
-export async function GET() {
+export async function GET({ url }: RequestEvent) {
     const products = getAllMockProducts();
-    const site = 'https://iconroof.co.th';
+    const site = url.origin;
 
     const pages = [
         '',
