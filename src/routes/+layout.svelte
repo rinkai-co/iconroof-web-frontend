@@ -70,48 +70,6 @@
 		gtag('config', 'G-M74LW8G72T');
 	</script>
 	<!-- End Google Analytics -->
-	<!-- LINE Tag Base Code -->
-	<!-- Do Not Modify -->
-	<script>
-		(function (g, d, o) {
-			g._ltq = g._ltq || [];
-			g._lt =
-				g._lt ||
-				function () {
-					g._ltq.push(arguments);
-				};
-			var h = location.protocol === 'https:' ? 'https://d.line-scdn.net' : 'http://d.line-cdn.net';
-			var s = d.createElement('script');
-			s.async = 1;
-			s.src = o || h + '/n/line_tag/public/release/v1/lt.js';
-			var t = d.getElementsByTagName('script')[0];
-			t.parentNode.insertBefore(s, t);
-		})(window, document);
-		_lt('init', {
-			customerType: 'account',
-			tagId: '4359866b-d00c-4b64-8baa-14943156976b'
-		});
-		_lt('send', 'pv', ['4359866b-d00c-4b64-8baa-14943156976b']);
-	</script>
-	<noscript>
-		<img
-			height="1"
-			width="1"
-			style="display:none"
-			src="https://tr.line.me/tag.gif?c_t=lap&t_id=4359866b-d00c-4b64-8baa-14943156976b&e=pv&noscript=1"
-		/>
-	</noscript>
-	<!-- End LINE Tag Base Code -->
-	<script>
-		_lt(
-			'send',
-			'cv',
-			{
-				type: 'Conversion'
-			},
-			['4359866b-d00c-4b64-8baa-14943156976b']
-		);
-	</script>
 </svelte:head>
 
 <!-- Google Tag Manager (noscript) -->

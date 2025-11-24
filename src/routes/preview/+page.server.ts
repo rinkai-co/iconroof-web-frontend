@@ -1,11 +1,12 @@
-import { getAllMockProductsAsync, getMockBannerAsync } from '$lib/mock-data';
+import { getAllMockProductsAsync, getMockBannerAsync, getMockSliderSectionAsync } from '$lib/mock-data';
 import type { PageServerLoad } from './$types';
 import type { NewsArticle } from '$lib/types';
 
 export const load: PageServerLoad = async () => {
-	const [products, banner] = await Promise.all([
+	const [products, banner, slider] = await Promise.all([
 		getAllMockProductsAsync(),
-		getMockBannerAsync('preview-banner')
+		getMockBannerAsync('preview-banner'),
+		getMockSliderSectionAsync('preview-slider')
 	]);
 
 	const productNews: NewsArticle[] = products.map((product) => ({
@@ -21,6 +22,7 @@ export const load: PageServerLoad = async () => {
 	return {
 		products,
 		banner,
+		slider,
 		productNews
 	};
 };

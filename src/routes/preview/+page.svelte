@@ -14,7 +14,13 @@
 <div
 	class="mx-auto flex max-w-7xl flex-col gap-16 p-6 px-6 py-8 font-sans md:gap-24 md:px-8 md:py-16"
 >
-	<Slider sectionTitle="Default Title" sectionSubtitle="Default Subtitle" articles={[]} />
+	{#if data.slider}
+		<Slider
+			sectionTitle={data.slider.title}
+			sectionSubtitle={data.slider.subtitle}
+			articles={data.slider.articles}
+		/>
+	{/if}
 	<div>
 		<p class="text-neutral-600">ผลงาน</p>
 		<h2 class="mt-1 mb-2 text-4xl leading-tight font-bold text-neutral-900">รีวิวจากลูกค้า</h2>

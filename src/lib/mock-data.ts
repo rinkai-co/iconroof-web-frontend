@@ -1,4 +1,15 @@
-import type { Product, Banner, Brand, BannerInfo, FAQItem, NewsArticle, Testimonial, CustomerReview } from '$lib/types';
+import type {
+	Product,
+	Banner,
+	Brand,
+	BannerInfo,
+	FAQItem,
+	NewsArticle,
+	Testimonial,
+	CustomerReview,
+	SliderSection,
+	ArticleItem
+} from '$lib/types';
 
 const mockProducts: Product[] = [
 	{
@@ -45,7 +56,7 @@ const mockBanners: Banner[] = [
 		title: 'สร้างความเป็นส่วนตัวให้กับบ้าน',
 		subtitle: 'ระแนงไวนิล Amigo',
 		description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
-		imageUrl: '/product/1112.webp',
+		imageUrl: '/product/1121.webp',
 		linkUrl: '/product/amigo'
 	},
 	{
@@ -53,7 +64,7 @@ const mockBanners: Banner[] = [
 		title: 'บริการติดตั้งครบวงจร',
 		subtitle: 'ทีมงานมืออาชีพ',
 		description: 'บริการติดตั้งระแนงและหลังคาโดยช่างผู้ชำนาญการ ประสบการณ์ยาวนาน',
-		imageUrl: '/product/1122.webp',
+		imageUrl: '/product/1111.webp',
 		linkUrl: '/services'
 	},
 	{
@@ -263,42 +274,151 @@ export async function getMockTestimonialsAsync(): Promise<Testimonial[]> {
 const mockCustomerReviews: CustomerReview[] = [
 	{
 		id: '1',
-		name: "Supachai W.",
-		reviewAt: "Facebook",
-		comment: "เป็นเวลา 2 วันที่ติดตั้งระแนงไวนิลจากช่างของ ICONROOF ได้รับการบริการที่ดีเยี่ยมเลยครับ ช่างทั้งสามคนที่เข้ามาติดตั้งฝีมือดีมาก งานเนี๊ยบ ใจเย็น พูดจาสุภาพ ขอแนะนำเลยครับ ชอบผลงานมาก ๆ เลยครับ",
+		name: 'Supachai W.',
+		reviewAt: 'Facebook',
+		comment:
+			'เป็นเวลา 2 วันที่ติดตั้งระแนงไวนิลจากช่างของ ICONROOF ได้รับการบริการที่ดีเยี่ยมเลยครับ ช่างทั้งสามคนที่เข้ามาติดตั้งฝีมือดีมาก งานเนี๊ยบ ใจเย็น พูดจาสุภาพ ขอแนะนำเลยครับ ชอบผลงานมาก ๆ เลยครับ',
 		rating: 5,
-		imageUrl: "/review/re-1.webp",
-		linkUrl: "https://www.facebook.com/share/p/1D3pLsWs1f/"
+		imageUrl: '/review/re-1.webp',
+		linkUrl: 'https://www.facebook.com/share/p/1D3pLsWs1f/'
 	},
 	{
 		id: '2',
-		name: "Natalie S.",
-		reviewAt: "Facebook",
-		comment: "งานดี มีคุณภาพ ติดตั้งไวและสวย ทีมงานติดตั้งชำนาญ มีประสบการณ์ จบงานได้ไว ส่วนตัวกับแฟน ชอบมากๆ ค่ะ ติดแล้ว บ้านก็ยังดูสวย ดูทันสมัย และดูแพง",
+		name: 'Natalie S.',
+		reviewAt: 'Facebook',
+		comment:
+			'งานดี มีคุณภาพ ติดตั้งไวและสวย ทีมงานติดตั้งชำนาญ มีประสบการณ์ จบงานได้ไว ส่วนตัวกับแฟน ชอบมากๆ ค่ะ ติดแล้ว บ้านก็ยังดูสวย ดูทันสมัย และดูแพง',
 		rating: 5,
-		imageUrl: "/review/re-2.webp",
-		linkUrl: "https://www.facebook.com/share/p/16XC85rjqo/"
+		imageUrl: '/review/re-2.webp',
+		linkUrl: 'https://www.facebook.com/share/p/16XC85rjqo/'
 	},
 	{
 		id: '3',
-		name: "AuTing W.",
-		reviewAt: "Facebook",
-		comment: "งานระแนง งานหลังคาโรงรถ เรียบร้อย สวยงาม ทีมช่างมีความชำนาญ ทำงาน เก็บงานเรียบร้อยมากค่ะ",
+		name: 'AuTing W.',
+		reviewAt: 'Facebook',
+		comment:
+			'งานระแนง งานหลังคาโรงรถ เรียบร้อย สวยงาม ทีมช่างมีความชำนาญ ทำงาน เก็บงานเรียบร้อยมากค่ะ',
 		rating: 4,
-		imageUrl: "/review/re-3.webp",
-		linkUrl: "https://www.facebook.com/share/p/1E7BUrY35V/"
+		imageUrl: '/review/re-3.webp',
+		linkUrl: 'https://www.facebook.com/share/p/1E7BUrY35V/'
 	},
 	{
 		id: '4',
-		name: "Atitaya T.",
-		reviewAt: "Facebook",
-		comment: "เราติดระแนงบังตาไปค่ะ ช่างสุภาพ ทำงานเรียบร้อย เก็บงานดี มีเก็บสีด้านหลังระแนงให้ด้วย ทำไวดี วันเดียวเสร็จ หลังจากทำงานเสร็จ ก็เก็บกวาดบ้าน บริเวณนั้นให้อีก ประทับใจค่ะ",
+		name: 'Atitaya T.',
+		reviewAt: 'Facebook',
+		comment:
+			'เราติดระแนงบังตาไปค่ะ ช่างสุภาพ ทำงานเรียบร้อย เก็บงานดี มีเก็บสีด้านหลังระแนงให้ด้วย ทำไวดี วันเดียวเสร็จ หลังจากทำงานเสร็จ ก็เก็บกวาดบ้าน บริเวณนั้นให้อีก ประทับใจค่ะ',
 		rating: 5,
-		imageUrl: "/review/re-4.webp",
-		linkUrl: "https://www.facebook.com/share/p/14TUa4FT8r9/"
-	},
+		imageUrl: '/review/re-4.webp',
+		linkUrl: 'https://www.facebook.com/share/p/14TUa4FT8r9/'
+	}
 ];
 
 export async function getMockCustomerReviewsAsync(): Promise<CustomerReview[]> {
 	return mockCustomerReviews;
+}
+
+const mockSliderSections: SliderSection[] = [
+	{
+		id: 'services-slider',
+		title: 'ผลงานติดตั้งระแนงไวนิล',
+		subtitle: 'ผลงาน',
+		articles: [
+			{
+				id: '1',
+				imageUrl: '/1101.webp',
+				title: 'ระแนงไวนิล AMIGO 1',
+				description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
+				linkUrl: '#'
+			},
+			{
+				id: '2',
+				imageUrl: '/1103.webp',
+				title: 'ระแนงไวนิล AMIGO 2',
+				description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
+				linkUrl: '#'
+			},
+			{
+				id: '3',
+				imageUrl: '/1102.webp',
+				title: 'ระแนงไวนิล AMIGO 3',
+				description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
+				linkUrl: '#'
+			},
+			{
+				id: '4',
+				imageUrl: '/1103.webp',
+				title: 'ระแนงไวนิล AMIGO 4',
+				description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
+				linkUrl: '#'
+			},
+			{
+				id: '5',
+				imageUrl: '/1101.webp',
+				title: 'ระแนงไวนิล AMIGO 5',
+				description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
+				linkUrl: '#'
+			}
+		]
+	},
+	{
+		id: 'blogs-slider',
+		title: 'บทความยอดนิยม',
+		subtitle: 'บทความ',
+		articles: [
+			{
+				id: 'b1',
+				imageUrl: '/blog/blog-1.webp',
+				title: 'เทคนิคการเลือกวัสดุหลังคา',
+				description: 'รวมเทคนิคดีๆ ในการเลือกวัสดุมุงหลังคาให้เหมาะกับบ้านของคุณ',
+				linkUrl: '#'
+			},
+			{
+				id: 'b2',
+				imageUrl: '/1104.svg',
+				title: 'โปรโมชั่นพิเศษประจำเดือน',
+				description: 'พบกับข้อเสนอสุดพิเศษสำหรับการติดตั้งระแนงไวนิล',
+				linkUrl: '#'
+			},
+			{
+				id: 'b3',
+				imageUrl: '/1103.webp',
+				title: 'การดูแลรักษาระแนงไวนิล',
+				description: 'วิธีการดูแลรักษาระแนงไวนิลให้สวยงามยาวนาน',
+				linkUrl: '#'
+			}
+		]
+	},
+	{
+		id: 'preview-slider',
+		title: 'ผลงานแนะนำ',
+		subtitle: 'ไฮไลท์',
+		articles: [
+			{
+				id: 'p1',
+				imageUrl: '/product/1111.webp',
+				title: 'งานติดตั้งบ้านคุณสมชาย',
+				description: 'ระแนงไวนิลรุ่น VG Vento สีโอ๊ค สวยงาม ทนทาน',
+				linkUrl: '#'
+			},
+			{
+				id: 'p2',
+				imageUrl: '/product/1112.webp',
+				title: 'งานติดตั้งร้านกาแฟ Coffee Home',
+				description: 'ตกแต่งร้านกาแฟด้วยระแนงไวนิล ให้บรรยากาศอบอุ่น',
+				linkUrl: '#'
+			},
+			{
+				id: 'p3',
+				imageUrl: '/product/1125.webp',
+				title: 'งานกั้นห้องพระ',
+				description: 'ใช้ระแนงไวนิลกั้นห้องพระ เพิ่มความเป็นสัดส่วน',
+				linkUrl: '#'
+			}
+		]
+	}
+];
+
+export async function getMockSliderSectionAsync(id: string): Promise<SliderSection | undefined> {
+	return mockSliderSections.find((section) => section.id === id);
 }

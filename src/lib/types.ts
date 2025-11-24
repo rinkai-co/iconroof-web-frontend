@@ -75,3 +75,11 @@ export interface ArticleItem {
   description: string;
   linkUrl: string;
 }
+
+export interface SliderSection {
+  id: string;
+  title: string;
+  subtitle: string;
+  articles: ArticleItem[];
+}
+
