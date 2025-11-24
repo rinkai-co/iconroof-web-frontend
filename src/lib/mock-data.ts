@@ -113,7 +113,6 @@ export function getMockProduct(id: string): Product | undefined {
 }
 
 export async function getMockProductAsync(id: string): Promise<Product | undefined> {
-	await new Promise((resolve) => setTimeout(resolve, 1500));
 	return mockProducts.find((product) => product.id === id);
 }
 
@@ -122,7 +121,6 @@ export function getAllMockProducts(): Product[] {
 }
 
 export async function getAllMockProductsAsync(): Promise<Product[]> {
-	await new Promise((resolve) => setTimeout(resolve, 1500));
 	return mockProducts;
 }
 
@@ -131,7 +129,6 @@ export function getMockBanner(id: string): Banner | undefined {
 }
 
 export async function getMockBannerAsync(id: string): Promise<Banner | undefined> {
-	await new Promise((resolve) => setTimeout(resolve, 1500));
 	return mockBanners.find((banner) => banner.id === id);
 }
 
@@ -140,7 +137,6 @@ export function getMockBrands(): Brand[] {
 }
 
 export async function getMockBrandsAsync(): Promise<Brand[]> {
-	await new Promise((resolve) => setTimeout(resolve, 2000));
 	return mockBrands;
 }
 
@@ -149,12 +145,10 @@ export function getMockBannerInfo(): BannerInfo {
 }
 
 export async function getMockBannerInfoAsync(): Promise<BannerInfo> {
-	await new Promise((resolve) => setTimeout(resolve, 2000));
 	return mockBannerInfos[0];
 }
 
 export async function getMockFAQItemsAsync(): Promise<FAQItem[]> {
-	await new Promise((resolve) => setTimeout(resolve, 1000));
 	return mockFAQItems;
 }
 
@@ -207,7 +201,6 @@ const mockNewsArticles: NewsArticle[] = [
 ];
 
 export async function getMockNewsArticlesAsync(): Promise<NewsArticle[]> {
-	await new Promise((resolve) => setTimeout(resolve, 1500));
 	return mockNewsArticles;
 }
 
@@ -240,7 +233,6 @@ const mockTestimonials: Testimonial[] = [
 ];
 
 export async function getMockTestimonialsAsync(): Promise<Testimonial[]> {
-	await new Promise((resolve) => setTimeout(resolve, 1500));
 	return mockTestimonials;
 }
 
@@ -284,6 +276,5 @@ const mockCustomerReviews: CustomerReview[] = [
 ];
 
 export async function getMockCustomerReviewsAsync(): Promise<CustomerReview[]> {
-	await new Promise((resolve) => setTimeout(resolve, 1500));
 	return mockCustomerReviews;
 }
