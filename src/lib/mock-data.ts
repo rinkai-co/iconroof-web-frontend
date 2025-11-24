@@ -11,6 +11,17 @@ import type {
 	ArticleItem
 } from '$lib/types';
 
+// Define base path for images
+const BASE_IMG_PATH = '/src/lib/assets/images';
+
+function getImg(path: string): string {
+    // path is like '/product/1121.webp'
+    // We return full path for glob matching in component
+    // If path already has prefix, handle it (though unlikely in mock data)
+    const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+    return `${BASE_IMG_PATH}${normalizedPath}`;
+}
+
 const mockProducts: Product[] = [
 	{
 		id: 'amigo',
@@ -18,7 +29,7 @@ const mockProducts: Product[] = [
 		description:
 			'หมดปัญหาเรื่องปลวกและเชื้อรา ไม่ปิดตัว ไม่บวมน้ำ ทนต่อแสงแดด มีอายุการใช้งานที่ยาวนาน',
 		price: 199.99,
-		imageUrl: '/product/1121.webp',
+		imageUrl: getImg('/product/1121.webp'),
 		brand: 'Amigo',
 		category: 'ระแนงไวนิล'
 	},
@@ -27,7 +38,7 @@ const mockProducts: Product[] = [
 		name: 'VG Vento',
 		description: 'ออกแบบเพื่อสภาพอากาศของประเทศไทยโดยเฉพาะ',
 		price: 299.5,
-		imageUrl: '/product/test-1.jpg',
+		imageUrl: getImg('/product/test-1.jpg'),
 		brand: 'VG Vento',
 		category: 'ระแนงไวนิล'
 	},
@@ -36,7 +47,7 @@ const mockProducts: Product[] = [
 		name: 'ระแนง SCG Box Set',
 		description: 'สร้างสรรค์ความงามได้หลากหลาย ภายใต้คุณภาพที่เป็นมาตรฐาน',
 		price: 99.0,
-		imageUrl: '/product/1123.webp',
+		imageUrl: getImg('/product/1123.webp'),
 		brand: 'SCG',
 		category: 'ระแนงไวนิล'
 	}
@@ -48,7 +59,7 @@ const mockBanners: Banner[] = [
 		title: 'ระแนงไวนิล วีจีเวนโต้',
 		subtitle: 'สินค้าใหม่',
 		description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
-		imageUrl: '/product/1111.webp',
+		imageUrl: getImg('/product/1111.webp'),
 		linkUrl: '/product/vg-vento'
 	},
 	{
@@ -56,7 +67,7 @@ const mockBanners: Banner[] = [
 		title: 'สร้างความเป็นส่วนตัวให้กับบ้าน',
 		subtitle: 'ระแนงไวนิล Amigo',
 		description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
-		imageUrl: '/product/1121.webp',
+		imageUrl: getImg('/product/1112.webp'),
 		linkUrl: '/product/amigo'
 	},
 	{
@@ -64,7 +75,7 @@ const mockBanners: Banner[] = [
 		title: 'บริการติดตั้งครบวงจร',
 		subtitle: 'ทีมงานมืออาชีพ',
 		description: 'บริการติดตั้งระแนงและหลังคาโดยช่างผู้ชำนาญการ ประสบการณ์ยาวนาน',
-		imageUrl: '/product/1111.webp',
+		imageUrl: getImg('/product/1122.webp'),
 		linkUrl: '/services'
 	},
 	{
@@ -72,7 +83,7 @@ const mockBanners: Banner[] = [
 		title: 'บทความและสาระน่ารู้',
 		subtitle: 'อัพเดทเทรนด์ใหม่ๆ',
 		description: 'รวมบทความเกี่ยวกับบ้าน การตกแต่ง และวัสดุก่อสร้างที่น่าสนใจ',
-		imageUrl: '/1103.webp',
+		imageUrl: getImg('/1103.webp'),
 		linkUrl: '/blogs'
 	},
 	{
@@ -80,7 +91,7 @@ const mockBanners: Banner[] = [
 		title: 'ตัวอย่างผลงาน',
 		subtitle: 'Gallery',
 		description: 'ชมภาพผลงานการติดตั้งจริงจากลูกค้าของเรา',
-		imageUrl: '/product/1125.webp',
+		imageUrl: getImg('/product/1125.webp'),
 		linkUrl: '/preview'
 	}
 ];
@@ -89,25 +100,25 @@ const mockBrands: Brand[] = [
 	{
 		id: 'amigo',
 		name: 'Amigo',
-		imageUrl: '/brand/amigo.jpg',
+		imageUrl: getImg('/brand/amigo.jpg'),
 		linkUrl: '/products/amigo'
 	},
 	{
 		id: 'vg-vento',
 		name: 'VG Vento',
-		imageUrl: '/brand/vg_cnp.jpg',
+		imageUrl: getImg('/brand/vg_cnp.jpg'),
 		linkUrl: '/products/vg-vento'
 	},
 	{
 		id: 'scg_home',
 		name: 'SCG Home',
-		imageUrl: '/brand/scg_home.jpg',
+		imageUrl: getImg('/brand/scg_home.jpg'),
 		linkUrl: '/products/scg_home'
 	},
 	{
 		id: 'component',
 		name: 'ชิ้นส่วนระแนง',
-		imageUrl: '/brand/components.svg',
+		imageUrl: getImg('/brand/components.svg'),
 		linkUrl: '/products/components'
 	}
 ];
@@ -117,7 +128,7 @@ const mockBannerInfos: BannerInfo[] = [
 		id: 'info1',
 		title: 'สอบถาม ปรึกษา ฟรี',
 		description: 'สอบถามเกี่ยวกับสินค้าและงานติดตั้งได้ฟรี',
-		imageUrl: '/1101.webp',
+		imageUrl: getImg('/1101.webp'),
 		linkUrl: 'https://lin.ee/8BsKFek',
 		linkText: 'ติดต่อผ่านไลน์'
 	}
@@ -197,7 +208,7 @@ const mockNewsArticles: NewsArticle[] = [
 			'ติดตั้งระแนงไวนิลเว้นร่อง ตั้งแต่วันนี้ – 30 มิ.ย. 2568 จาก 1,900 ลดเหลือ 1,750 บาท/ตร.ม. *เงื่อนไขเป็นไปตามบริษัทกำหนด',
 		content:
 			'ติดตั้งระแนงไวนิลเว้นร่อง ตั้งแต่วันนี้ – 30 มิ.ย. 2568 จาก 1,900 ลดเหลือ 1,750 บาท/ตร.ม. *เงื่อนไขเป็นไปตามบริษัทกำหนด',
-		imageUrl: '/1104.svg',
+		imageUrl: getImg('/1104.svg'),
 		linkUrl: '/articles/amigo-launching-soon'
 	},
 	{
@@ -208,7 +219,7 @@ const mockNewsArticles: NewsArticle[] = [
 		description:
 			'การเลือกวัสดุที่ใช้มุง หลังคา ถือว่าเป็นอย่างแรกๆ ที่เรามักต้องเลือกกันก่อน ด้วยวัสดุมีหลากหลายแบบและชนิด ซึ่งมันอาจจะไม่เหมาะกับทรงหลังคาบ้านและความต้องการของเราก็เป็นได้',
 		content: 'Full content for news 2...',
-		imageUrl: '/blog/blog-1.webp',
+		imageUrl: getImg('/blog/blog-1.webp'),
 		linkUrl: '/articles/amigo-launching-soon'
 	},
 	{
@@ -219,7 +230,7 @@ const mockNewsArticles: NewsArticle[] = [
 		description: 'การตกแต่งบ้านด้วยระแนงนั้น ไม่ใช่แค่การตีไม้ยึดติดผนังหรือพื้นเป็นอันว่าจบกัน',
 		content:
 			'หากให้นึกถึงวัสดุที่สามารถป้องกันแสงแดด ทั้งยังพรางสายตาเพื่อนบ้านได้ เชื่อว่า “ระแนง” กับคุณสมบัติที่สามารถเพิ่มความสวยงามให้กับบ้านได้ไม่ยาก แต่การตกแต่งบ้านด้วยระแนงนั้น ไม่ใช่แค่การตีไม้ยึดติดผนังหรือพื้นเป็นอันว่าจบกัน',
-		imageUrl: '/1103.webp',
+		imageUrl: getImg('/1103.webp'),
 		linkUrl: '/articles/amigo-launching-soon'
 	},
 	{
@@ -230,7 +241,7 @@ const mockNewsArticles: NewsArticle[] = [
 		description:
 			'ลีเมอร์อันตรกิริยาหมายปองเพลย์บอยสไตล์ คันยิ มาร์เก็ตติ้งสโตร์แชมปิยองอุปทาน สึนามิเหมยมั้ยนิววิทย์',
 		content: 'Full content for news 4...',
-		imageUrl: '/1102.webp',
+		imageUrl: getImg('/1102.webp'),
 		linkUrl: '/articles/amigo-launching-soon'
 	}
 ];
@@ -244,26 +255,26 @@ const mockTestimonials: Testimonial[] = [
 		id: '1',
 		title: 'ติดตั้งง่าย ทนทาน ราคาคุ้มค่า',
 		description: 'ระแนงไวนิล amigo ติดตั้งง่าย ทนทาน ราคาคุ้มค่า',
-		imageUrl: '/product/1121.webp'
+		imageUrl: getImg('/product/1121.webp')
 	},
 	{
 		id: '2',
 		title: 'หมดปัญหาเรื่องปลวกและเชื้อรา',
 		description:
 			'หมดปัญหาเรื่องปลวกและเชื้อรา ไม่ปิดตัว ไม่บวมน้ำ ทนต่อแสงแดด มีอายุการใช้งานที่ยาวนาน',
-		imageUrl: '/product/1126.webp'
+		imageUrl: getImg('/product/1126.webp')
 	},
 	{
 		id: '3',
 		title: 'ระบบอุปกรณ์ติดตั้งครบชุด',
 		description: 'ระแนงอมิโก้ ระบบอุปกรณ์ติดตั้งครบชุด',
-		imageUrl: '/product/1127.webp'
+		imageUrl: getImg('/product/1127.webp')
 	},
 	{
 		id: '4',
 		title: 'งานเรียบร้อยได้มาตรฐาน',
 		description: 'ระแนงอมิโก้ งานเรียบร้อยได้มาตรฐาน',
-		imageUrl: '/product/1128.webp'
+		imageUrl: getImg('/product/1128.webp')
 	}
 ];
 
@@ -279,7 +290,7 @@ const mockCustomerReviews: CustomerReview[] = [
 		comment:
 			'เป็นเวลา 2 วันที่ติดตั้งระแนงไวนิลจากช่างของ ICONROOF ได้รับการบริการที่ดีเยี่ยมเลยครับ ช่างทั้งสามคนที่เข้ามาติดตั้งฝีมือดีมาก งานเนี๊ยบ ใจเย็น พูดจาสุภาพ ขอแนะนำเลยครับ ชอบผลงานมาก ๆ เลยครับ',
 		rating: 5,
-		imageUrl: '/review/re-1.webp',
+		imageUrl: getImg('/review/re-1.webp'),
 		linkUrl: 'https://www.facebook.com/share/p/1D3pLsWs1f/'
 	},
 	{
@@ -289,7 +300,7 @@ const mockCustomerReviews: CustomerReview[] = [
 		comment:
 			'งานดี มีคุณภาพ ติดตั้งไวและสวย ทีมงานติดตั้งชำนาญ มีประสบการณ์ จบงานได้ไว ส่วนตัวกับแฟน ชอบมากๆ ค่ะ ติดแล้ว บ้านก็ยังดูสวย ดูทันสมัย และดูแพง',
 		rating: 5,
-		imageUrl: '/review/re-2.webp',
+		imageUrl: getImg('/review/re-2.webp'),
 		linkUrl: 'https://www.facebook.com/share/p/16XC85rjqo/'
 	},
 	{
@@ -299,7 +310,7 @@ const mockCustomerReviews: CustomerReview[] = [
 		comment:
 			'งานระแนง งานหลังคาโรงรถ เรียบร้อย สวยงาม ทีมช่างมีความชำนาญ ทำงาน เก็บงานเรียบร้อยมากค่ะ',
 		rating: 4,
-		imageUrl: '/review/re-3.webp',
+		imageUrl: getImg('/review/re-3.webp'),
 		linkUrl: 'https://www.facebook.com/share/p/1E7BUrY35V/'
 	},
 	{
@@ -309,7 +320,7 @@ const mockCustomerReviews: CustomerReview[] = [
 		comment:
 			'เราติดระแนงบังตาไปค่ะ ช่างสุภาพ ทำงานเรียบร้อย เก็บงานดี มีเก็บสีด้านหลังระแนงให้ด้วย ทำไวดี วันเดียวเสร็จ หลังจากทำงานเสร็จ ก็เก็บกวาดบ้าน บริเวณนั้นให้อีก ประทับใจค่ะ',
 		rating: 5,
-		imageUrl: '/review/re-4.webp',
+		imageUrl: getImg('/review/re-4.webp'),
 		linkUrl: 'https://www.facebook.com/share/p/14TUa4FT8r9/'
 	}
 ];
@@ -326,35 +337,35 @@ const mockSliderSections: SliderSection[] = [
 		articles: [
 			{
 				id: '1',
-				imageUrl: '/1101.webp',
+				imageUrl: getImg('/1101.webp'),
 				title: 'ระแนงไวนิล AMIGO 1',
 				description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
 				linkUrl: '#'
 			},
 			{
 				id: '2',
-				imageUrl: '/1103.webp',
+				imageUrl: getImg('/1103.webp'),
 				title: 'ระแนงไวนิล AMIGO 2',
 				description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
 				linkUrl: '#'
 			},
 			{
 				id: '3',
-				imageUrl: '/1102.webp',
+				imageUrl: getImg('/1102.webp'),
 				title: 'ระแนงไวนิล AMIGO 3',
 				description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
 				linkUrl: '#'
 			},
 			{
 				id: '4',
-				imageUrl: '/1103.webp',
+				imageUrl: getImg('/1103.webp'),
 				title: 'ระแนงไวนิล AMIGO 4',
 				description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
 				linkUrl: '#'
 			},
 			{
 				id: '5',
-				imageUrl: '/1101.webp',
+				imageUrl: getImg('/1101.webp'),
 				title: 'ระแนงไวนิล AMIGO 5',
 				description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
 				linkUrl: '#'
@@ -368,21 +379,21 @@ const mockSliderSections: SliderSection[] = [
 		articles: [
 			{
 				id: 'b1',
-				imageUrl: '/blog/blog-1.webp',
+				imageUrl: getImg('/blog/blog-1.webp'),
 				title: 'เทคนิคการเลือกวัสดุหลังคา',
 				description: 'รวมเทคนิคดีๆ ในการเลือกวัสดุมุงหลังคาให้เหมาะกับบ้านของคุณ',
 				linkUrl: '#'
 			},
 			{
 				id: 'b2',
-				imageUrl: '/1104.svg',
+				imageUrl: getImg('/1104.svg'),
 				title: 'โปรโมชั่นพิเศษประจำเดือน',
 				description: 'พบกับข้อเสนอสุดพิเศษสำหรับการติดตั้งระแนงไวนิล',
 				linkUrl: '#'
 			},
 			{
 				id: 'b3',
-				imageUrl: '/1103.webp',
+				imageUrl: getImg('/1103.webp'),
 				title: 'การดูแลรักษาระแนงไวนิล',
 				description: 'วิธีการดูแลรักษาระแนงไวนิลให้สวยงามยาวนาน',
 				linkUrl: '#'
@@ -396,21 +407,21 @@ const mockSliderSections: SliderSection[] = [
 		articles: [
 			{
 				id: 'p1',
-				imageUrl: '/product/1111.webp',
+				imageUrl: getImg('/product/1111.webp'),
 				title: 'งานติดตั้งบ้านคุณสมชาย',
 				description: 'ระแนงไวนิลรุ่น VG Vento สีโอ๊ค สวยงาม ทนทาน',
 				linkUrl: '#'
 			},
 			{
 				id: 'p2',
-				imageUrl: '/product/1112.webp',
+				imageUrl: getImg('/product/1112.webp'),
 				title: 'งานติดตั้งร้านกาแฟ Coffee Home',
 				description: 'ตกแต่งร้านกาแฟด้วยระแนงไวนิล ให้บรรยากาศอบอุ่น',
 				linkUrl: '#'
 			},
 			{
 				id: 'p3',
-				imageUrl: '/product/1125.webp',
+				imageUrl: getImg('/product/1125.webp'),
 				title: 'งานกั้นห้องพระ',
 				description: 'ใช้ระแนงไวนิลกั้นห้องพระ เพิ่มความเป็นสัดส่วน',
 				linkUrl: '#'

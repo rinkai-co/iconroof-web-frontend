@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { BannerInfo } from "$lib/types";
+  import Image from "$lib/components/ui/Image.svelte";
 
   interface Props {
     bannerInfo: BannerInfo;
@@ -24,7 +25,7 @@
         {bannerInfo.linkText}
       </a>
     </div>
-    <img
+    <Image
       src={bannerInfo.imageUrl}
       alt={bannerInfo.title}
       class="absolute inset-0 w-full h-full object-cover brightness-65 z-10 rounded-xl"

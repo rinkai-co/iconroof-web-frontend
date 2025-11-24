@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 	import type { Testimonial } from '$lib/types';
+	import Image from '$lib/components/ui/Image.svelte';
 
 	interface Props {
 		testimonials: Testimonial[];
@@ -97,7 +98,7 @@
 									{testimonial.description}
 								</p>
 							</div>
-							<img
+							<Image
 								src={testimonial.imageUrl}
 								alt={testimonial.title}
 								class="absolute inset-0 h-full w-full object-cover brightness-60"

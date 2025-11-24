@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Banner } from '$lib/types';
+	import Image from '$lib/components/ui/Image.svelte';
 
 	interface Props {
 		banner: Banner;
@@ -28,7 +29,7 @@
 			สั่งซื้อสินค้า
 		</a>
 	</div>
-	<img
+	<Image
 		src={banner.imageUrl}
 		alt={banner.title}
 		class="absolute inset-0 z-10 h-full w-full object-cover brightness-65"

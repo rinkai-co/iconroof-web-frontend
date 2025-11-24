@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-svelte';
 	import type { ArticleItem } from '$lib/types';
+	import Image from '$lib/components/ui/Image.svelte';
 
 	const { sectionTitle, sectionSubtitle, articles = [] } = $props<{
 		sectionTitle: string;
@@ -85,7 +86,7 @@
 			{#each articles as article (article.id)}
 				<div class="w-76" id="product-{article.id}">
 					<div class="relative mb-4 h-96 w-76 overflow-hidden rounded-sm">
-						<img src={article.imageUrl} alt={article.title} class="h-full w-full object-cover" />
+						<Image src={article.imageUrl} alt={article.title} class="h-full w-full object-cover" />
 					</div>
 					<p class="font-semibold text-neutral-700">{article.title}</p>
 					<p class="mb-2 text-sm text-neutral-400">

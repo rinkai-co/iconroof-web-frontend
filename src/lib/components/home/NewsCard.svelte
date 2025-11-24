@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { NewsArticle } from "$lib/types";
+    import Image from "$lib/components/ui/Image.svelte";
 
     interface Props {
         news: NewsArticle;
@@ -33,7 +34,7 @@
         </div>
     </div>
     <div class="absolute inset-0 z-10 bg-gradient-to-t from-neutral-900/90 to-transparent group-hover:from-black group-hover:via-black/60 group-hover:to-transparent transition-all duration-300"></div>
-    <img
+    <Image
         src={news.imageUrl}
         alt={news.title}
         class="absolute h-full w-full object-cover"

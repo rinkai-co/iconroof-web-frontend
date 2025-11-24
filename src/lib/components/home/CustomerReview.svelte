@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { CustomerReview } from "$lib/types";
+    import Image from "$lib/components/ui/Image.svelte";
 
     interface Props {
         customerReviews: CustomerReview[];
@@ -23,7 +24,7 @@
                     target={review.linkUrl ? "_blank" : undefined}
                     class="relative w-[300px] md:w-[350px] h-[500px] rounded-2xl overflow-hidden group flex-shrink-0 block"
                 >
-                    <img
+                    <Image
                         src={review.imageUrl}
                         alt={`Review by ${review.name}`}
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

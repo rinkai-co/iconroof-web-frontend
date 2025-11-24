@@ -2,6 +2,7 @@
     import { X } from "lucide-svelte";
     import { fade, scale } from 'svelte/transition';
     import type { NewsArticle } from "$lib/types";
+    import Image from "$lib/components/ui/Image.svelte";
 
     interface Props {
         news: NewsArticle;
@@ -30,7 +31,7 @@
             <X class="w-5 h-5" />
         </button>
         <div class="h-64 md:h-80 lg:h-auto relative w-full lg:w-1/2 shrink-0">
-            <img
+            <Image
                 src={news.imageUrl}
                 alt={news.title}
                 class="absolute h-full w-full object-cover"

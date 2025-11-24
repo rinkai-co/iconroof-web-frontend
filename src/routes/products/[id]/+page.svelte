@@ -2,6 +2,7 @@
     import Menutab from '$lib/components/home/Menutab.svelte';
     import ProductBannerContainer from '$lib/components/products/ProductBannerContainer.svelte';
     import type { PageData } from './$types';
+    import Image from '$lib/components/ui/Image.svelte';
 
     let { data }: { data: PageData } = $props();
 </script>
@@ -12,11 +13,9 @@
     <div class="w-full p-4 md:p-8 bg-white shadow-lg rounded-lg">
         <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/2">
-                <img
+                <Image
                     src={data.product.imageUrl}
                     alt={data.product.name}
-                    width={600}
-                    height={400}
                     class="rounded-lg shadow-md w-full h-auto"
                 />
             </div>

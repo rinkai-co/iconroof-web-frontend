@@ -1,3 +1,7 @@
+<script>
+  import Image from '$lib/components/ui/Image.svelte';
+</script>
+
 <section class="">
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -27,9 +31,9 @@
 
       <!-- Image Section -->
       <div class="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
-        <img
+        <Image
           alt="Product showcase"
-          src="/product/test-1.jpg"
+          src="/src/lib/assets/images/product/test-1.jpg"
           class="absolute inset-0 w-full h-full object-cover rounded-sm"
         />
       </div>

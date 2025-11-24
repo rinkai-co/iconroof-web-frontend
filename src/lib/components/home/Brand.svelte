@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Brand } from "$lib/types";
+  import Image from "$lib/components/ui/Image.svelte";
 
   interface Props {
     brands: Brand[];
@@ -16,11 +17,11 @@
     <div class="flex gap-4 md:gap-6">
       {#each brands as brand (brand.id)}
         <a href={brand.linkUrl} class="flex flex-col items-center">
-          <img
+          <Image
             src={brand.imageUrl}
             alt=""
-            width={144}
-            height={144}
+            width="144"
+            height="144"
             class="mb-4 w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 object-cover rounded-md flex-shrink-0"
           />
           <p class="text-sm font-medium">{brand.name}</p>

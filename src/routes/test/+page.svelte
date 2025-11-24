@@ -1,3 +1,7 @@
+<script>
+  import Image from '$lib/components/ui/Image.svelte';
+</script>
+
 <main class="flex font-sans flex-col items-center justify-start min-h-screen bg-[var(--background)] text-[var(--foreground)] max-w-7xl mx-auto pt-16 md:pt-20">
   <section class="flex relative h-[60vh] w-full items-end rounded-2xl overflow-hidden">
     <div class="flex flex-col z-20 p-6 text-white w-full lg:mb-4">
@@ -15,8 +19,8 @@
         ดูรายละเอียด
       </a>
     </div>
-    <img
-      src="/product/1112.webp"
+    <Image
+      src="/src/lib/assets/images/product/1112.webp"
       alt="ระแนงไวนิล Amigo สร้างความเป็นส่วนตัวให้กับบ้าน"
       class="absolute inset-0 w-full h-full object-cover brightness-65 z-10"
     />
