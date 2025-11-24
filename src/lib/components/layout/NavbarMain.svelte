@@ -2,6 +2,7 @@
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
   import { ArrowUpRight } from "lucide-svelte";
+  import { MENU_ITEMS } from '$lib/constants';
 
   let scrolled = $state(false);
 
@@ -14,8 +15,11 @@
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  function isActive(path: string) {
-    return $page.url.pathname === path;
+  function isActive(href: string) {
+    if (href === "/") {
+      return $page.url.pathname === "/";
+    }
+    return $page.url.pathname === href || $page.url.pathname.startsWith(`${href}/`);
   }
 </script>
 
@@ -36,73 +40,27 @@
     <div
       class="md:flex gap-6 transition-colors hidden {scrolled ? "text-neutral-500" : "text-neutral-200"}"
     >
-      <a
-        href="/"
-        class={`flex-shrink-0 transition-colors ${isActive("/")
-          ? scrolled
-            ? "text-neutral-950 font-medium"
-            : "text-neutral-50 font-medium"
-          : scrolled
-            ? "hover:text-neutral-700"
-            : "hover:text-neutral-100"
-          }`}
-      >
-        หน้าแรก
-      </a>
-      <a
-        href="/products"
-        class={`flex-shrink-0 transition-colors ${isActive("/products") || $page.url.pathname.startsWith("/products/")
-          ? scrolled
-            ? "text-neutral-950 font-medium"
-            : "text-neutral-50 font-medium"
-          : scrolled
-            ? "hover:text-neutral-700"
-            : "hover:text-neutral-100"
-          }`}
-      >
-        สินค้า
-      </a>
-      <a
-        href="/preview"
-        class={`flex-shrink-0 transition-colors ${isActive("/preview")
-          ? scrolled
-            ? "text-neutral-950 font-medium"
-            : "text-neutral-50 font-medium"
-          : scrolled
-            ? "hover:text-neutral-700"
-            : "hover:text-neutral-100"
-          }`}
-      >
-        ผลงาน
-      </a>
-      <a
-        href="/blogs"
-        class={`flex-shrink-0 transition-colors ${isActive("/blogs") || $page.url.pathname.startsWith("/blogs/")
-          ? scrolled
-            ? "text-neutral-950 font-medium"
-            : "text-neutral-50 font-medium"
-          : scrolled
-            ? "hover:text-neutral-700"
-            : "hover:text-neutral-100"
-          }`}
-      >
-        บทความ
-      </a>
-      <a
-        href="/"
-        class={`flex-shrink-0 transition-colors ${scrolled ? "hover:text-neutral-700" : "hover:text-neutral-100"}`}
-      >
-        ช่างทำระแนง
-      </a>
-      <a
-        href="https://www.xn--42cf7cl0c9a5bk1kzc.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class={`flex-shrink-0 transition-colors ${scrolled ? "hover:text-neutral-700" : "hover:text-neutral-100"}`}
-      >
-        แผ่นหลังคา
-        <ArrowUpRight class="inline-block ml-1 h-4 w-4" />
-      </a>
+      {#each MENU_ITEMS as item}
+        <a
+          href={item.href}
+          target={item.external ? "_blank" : undefined}
+          rel={item.external ? "noopener noreferrer" : undefined}
+          class={`flex-shrink-0 transition-colors ${
+            !item.external && isActive(item.href)
+              ? scrolled
+                ? "text-neutral-950 font-medium"
+                : "text-neutral-50 font-medium"
+              : scrolled
+                ? "hover:text-neutral-700"
+                : "hover:text-neutral-100"
+            }`}
+        >
+          {item.label}
+          {#if item.external}
+            <ArrowUpRight class="inline-block ml-1 h-4 w-4" />
+          {/if}
+        </a>
+      {/each}
     </div>
 
     <a

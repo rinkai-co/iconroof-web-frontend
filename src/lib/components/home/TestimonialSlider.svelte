@@ -1,36 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
+	import type { Testimonial } from '$lib/types';
 
-	interface Slide {
-		title: string;
-		description: string;
-		image: string;
+	interface Props {
+		testimonials: Testimonial[];
 	}
 
-	const slides: Slide[] = [
-		{
-			title: 'ติดตั้งง่าย ทนทาน ราคาคุ้มค่า',
-			description: 'ระแนงไวนิล amigo ติดตั้งง่าย ทนทาน ราคาคุ้มค่า',
-			image: '/product/1121.webp'
-		},
-		{
-			title: 'หมดปัญหาเรื่องปลวกและเชื้อรา',
-			description:
-				'หมดปัญหาเรื่องปลวกและเชื้อรา ไม่ปิดตัว ไม่บวมน้ำ ทนต่อแสงแดด มีอายุการใช้งานที่ยาวนาน',
-			image: '/product/1126.webp'
-		},
-		{
-			title: 'ระบบอุปกรณ์ติดตั้งครบชุด',
-			description: 'ระแนงอมิโก้ ระบบอุปกรณ์ติดตั้งครบชุด',
-			image: '/product/1127.webp'
-		},
-		{
-			title: 'งานเรียบร้อยได้มาตรฐาน',
-			description: 'ระแนงอมิโก้ งานเรียบร้อยได้มาตรฐาน',
-			image: '/product/1128.webp'
-		}
-	];
+	let { testimonials }: Props = $props();
 
 	let scrollContainerRef: HTMLDivElement | null = null;
 	let canScrollLeft = $state(false);
@@ -109,20 +86,20 @@
 				bind:this={scrollContainerRef}
 				class="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth"
 			>
-				{#each slides as slide, index (index)}
+				{#each testimonials as testimonial (testimonial.id)}
 					<div class="w-full flex-shrink-0 snap-start">
 						<div class="relative flex h-[450px] w-full overflow-hidden rounded-2xl">
 							<div class="absolute bottom-0 left-0 z-20 flex flex-col p-6 text-white">
 								<h1 class="text-start text-3xl font-semibold">
-									{slide.title}
+									{testimonial.title}
 								</h1>
 								<p class="mt-2">
-									{slide.description}
+									{testimonial.description}
 								</p>
 							</div>
 							<img
-								src={slide.image}
-								alt={slide.title}
+								src={testimonial.imageUrl}
+								alt={testimonial.title}
 								class="absolute inset-0 h-full w-full object-cover brightness-60"
 							/>
 						</div>

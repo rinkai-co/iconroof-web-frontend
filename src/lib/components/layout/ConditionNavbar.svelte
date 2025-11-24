@@ -1,13 +1,11 @@
 <script lang="ts">
-  import { page } from '$app/stores';
-  import NavbarDefault from './NavbarDefault.svelte';
-  import NavbarMain from './NavbarMain.svelte';
-
-  let pathname = $derived($page.url.pathname);
+	import { page } from '$app/stores';
+	import NavbarDefault from './NavbarDefault.svelte';
+	import NavbarMain from './NavbarMain.svelte';
 </script>
 
-{#if pathname === '/' || pathname.startsWith('/product') || pathname.startsWith('/blogs')}
-  <NavbarMain />
+{#if $page.status >= 400}
+	<NavbarDefault />
 {:else}
-  <NavbarDefault />
+	<NavbarMain />
 {/if}

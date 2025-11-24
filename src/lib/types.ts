@@ -50,3 +50,20 @@ export interface NewsArticle {
   linkUrl: string;
   className?: string; // Optional for layout variations
 }
+
+export interface Testimonial {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
+export interface CustomerReview {
+  id: string;
+  name: string;
+  reviewAt: string;
+  comment: string;
+  rating: number;
+  imageUrl: string;
+  linkUrl: string;
+}

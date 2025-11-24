@@ -3,17 +3,21 @@ import {
     getMockBannerInfoAsync,
     getMockNewsArticlesAsync,
     getMockFAQItemsAsync,
-    getMockBannerAsync
+    getMockBannerAsync,
+    getMockTestimonialsAsync,
+    getMockCustomerReviewsAsync
 } from '$lib/mock-data';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-    const [brands, bannerInfo, newsArticles, faqItems, heroBanner] = await Promise.all([
+    const [brands, bannerInfo, newsArticles, faqItems, heroBanner, testimonials, customerReviews] = await Promise.all([
         getMockBrandsAsync(),
         getMockBannerInfoAsync(),
         getMockNewsArticlesAsync(),
         getMockFAQItemsAsync(),
-        getMockBannerAsync('home-hero-banner')
+        getMockBannerAsync('home-hero-banner'),
+        getMockTestimonialsAsync(),
+        getMockCustomerReviewsAsync()
     ]);
 
     return {
@@ -21,6 +25,8 @@ export const load: PageServerLoad = async () => {
         bannerInfo,
         newsArticles,
         faqItems,
-        heroBanner
+        heroBanner,
+        testimonials,
+        customerReviews
     };
 };

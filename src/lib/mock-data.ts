@@ -1,4 +1,4 @@
-import type { Product, Banner, Brand, BannerInfo, FAQItem, NewsArticle } from '$lib/types';
+import type { Product, Banner, Brand, BannerInfo, FAQItem, NewsArticle, Testimonial, CustomerReview } from '$lib/types';
 
 const mockProducts: Product[] = [
 	{
@@ -38,7 +38,7 @@ const mockBanners: Banner[] = [
 		subtitle: 'สินค้าใหม่',
 		description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
 		imageUrl: '/product/1111.webp',
-		linkUrl: 'https://lin.ee/8BsKFek'
+		linkUrl: '/product/vg-vento'
 	},
 	{
 		id: 'products-main-banner',
@@ -46,7 +46,7 @@ const mockBanners: Banner[] = [
 		subtitle: 'ระแนงไวนิล Amigo',
 		description: 'บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ',
 		imageUrl: '/product/1112.webp',
-		linkUrl: 'https://lin.ee/8BsKFek'
+		linkUrl: '/product/amigo'
 	}
 ];
 
@@ -209,4 +209,81 @@ const mockNewsArticles: NewsArticle[] = [
 export async function getMockNewsArticlesAsync(): Promise<NewsArticle[]> {
 	await new Promise((resolve) => setTimeout(resolve, 1500));
 	return mockNewsArticles;
+}
+
+const mockTestimonials: Testimonial[] = [
+	{
+		id: '1',
+		title: 'ติดตั้งง่าย ทนทาน ราคาคุ้มค่า',
+		description: 'ระแนงไวนิล amigo ติดตั้งง่าย ทนทาน ราคาคุ้มค่า',
+		imageUrl: '/product/1121.webp'
+	},
+	{
+		id: '2',
+		title: 'หมดปัญหาเรื่องปลวกและเชื้อรา',
+		description:
+			'หมดปัญหาเรื่องปลวกและเชื้อรา ไม่ปิดตัว ไม่บวมน้ำ ทนต่อแสงแดด มีอายุการใช้งานที่ยาวนาน',
+		imageUrl: '/product/1126.webp'
+	},
+	{
+		id: '3',
+		title: 'ระบบอุปกรณ์ติดตั้งครบชุด',
+		description: 'ระแนงอมิโก้ ระบบอุปกรณ์ติดตั้งครบชุด',
+		imageUrl: '/product/1127.webp'
+	},
+	{
+		id: '4',
+		title: 'งานเรียบร้อยได้มาตรฐาน',
+		description: 'ระแนงอมิโก้ งานเรียบร้อยได้มาตรฐาน',
+		imageUrl: '/product/1128.webp'
+	}
+];
+
+export async function getMockTestimonialsAsync(): Promise<Testimonial[]> {
+	await new Promise((resolve) => setTimeout(resolve, 1500));
+	return mockTestimonials;
+}
+
+const mockCustomerReviews: CustomerReview[] = [
+	{
+		id: '1',
+		name: "Supachai W.",
+		reviewAt: "Facebook",
+		comment: "เป็นเวลา 2 วันที่ติดตั้งระแนงไวนิลจากช่างของ ICONROOF ได้รับการบริการที่ดีเยี่ยมเลยครับ ช่างทั้งสามคนที่เข้ามาติดตั้งฝีมือดีมาก งานเนี๊ยบ ใจเย็น พูดจาสุภาพ ขอแนะนำเลยครับ ชอบผลงานมาก ๆ เลยครับ",
+		rating: 5,
+		imageUrl: "/review/re-1.webp",
+		linkUrl: "https://www.facebook.com/share/p/1D3pLsWs1f/"
+	},
+	{
+		id: '2',
+		name: "Natalie S.",
+		reviewAt: "Facebook",
+		comment: "งานดี มีคุณภาพ ติดตั้งไวและสวย ทีมงานติดตั้งชำนาญ มีประสบการณ์ จบงานได้ไว ส่วนตัวกับแฟน ชอบมากๆ ค่ะ ติดแล้ว บ้านก็ยังดูสวย ดูทันสมัย และดูแพง",
+		rating: 5,
+		imageUrl: "/review/re-2.webp",
+		linkUrl: "https://www.facebook.com/share/p/16XC85rjqo/"
+	},
+	{
+		id: '3',
+		name: "AuTing W.",
+		reviewAt: "Facebook",
+		comment: "งานระแนง งานหลังคาโรงรถ เรียบร้อย สวยงาม ทีมช่างมีความชำนาญ ทำงาน เก็บงานเรียบร้อยมากค่ะ",
+		rating: 4,
+		imageUrl: "/review/re-3.webp",
+		linkUrl: "https://www.facebook.com/share/p/1E7BUrY35V/"
+	},
+	{
+		id: '4',
+		name: "Atitaya T.",
+		reviewAt: "Facebook",
+		comment: "เราติดระแนงบังตาไปค่ะ ช่างสุภาพ ทำงานเรียบร้อย เก็บงานดี มีเก็บสีด้านหลังระแนงให้ด้วย ทำไวดี วันเดียวเสร็จ หลังจากทำงานเสร็จ ก็เก็บกวาดบ้าน บริเวณนั้นให้อีก ประทับใจค่ะ",
+		rating: 5,
+		imageUrl: "/review/re-4.webp",
+		linkUrl: "https://www.facebook.com/share/p/14TUa4FT8r9/"
+	},
+];
+
+export async function getMockCustomerReviewsAsync(): Promise<CustomerReview[]> {
+	await new Promise((resolve) => setTimeout(resolve, 1500));
+	return mockCustomerReviews;
 }

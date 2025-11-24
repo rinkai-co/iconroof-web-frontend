@@ -1,21 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { ArrowUpRight } from "lucide-svelte";
-
-  interface MenuItem {
-    label: string;
-    href: string;
-    external?: boolean;
-  }
-
-  const menuItems: MenuItem[] = [
-    { label: "หน้าแรก", href: "/" },
-    { label: "สินค้า", href: "/products" },
-    { label: "ผลงานติดตั้ง", href: "/preview" },
-    { label: "บทความ", href: "/blogs" },
-    { label: "ช่างทำระแนง", href: "#" },
-    { label: "แผ่นหลังคา", href: "https://www.xn--42cf7cl0c9a5bk1kzc.com/", external: true },
-  ];
+  import { MENU_ITEMS } from '$lib/constants';
 
   function isActive(href: string) {
     if (href === "/") {
@@ -31,7 +17,7 @@
       class="flex font-medium items-center gap-6 h-12 overflow-x-auto no-scrollbar text-neutral-500"
       id="menu-tab"
     >
-      {#each menuItems as item}
+      {#each MENU_ITEMS as item}
         <a
           href={item.href}
           target={item.external ? "_blank" : undefined}
