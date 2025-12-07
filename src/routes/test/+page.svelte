@@ -12,12 +12,12 @@
       <p class="my-2 max-w-2xl">
         บริการลูกค้าการนำเข้าธุรกิจค้าส่งมอบองค์กรการบรรลุเป้าหมายโทรบัญชีงบประมาณ
       </p>
-      <a
-        href="#"
+      <button
+        type="button"
         class="bg-white text-black px-6 py-2 rounded-full w-fit font-medium hover:bg-neutral-100 transition-colors"
       >
         ดูรายละเอียด
-      </a>
+      </button>
     </div>
     <Image
       src="/src/lib/assets/images/product/1112.webp"
