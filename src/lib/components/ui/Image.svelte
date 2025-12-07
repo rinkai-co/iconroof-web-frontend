@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	interface Props {
 		src: string;
 		alt?: string;
@@ -12,44 +10,29 @@
 
 	let { src, alt = '', class: className = '', ...rest }: Props = $props();
 
-	// Lazy glob import - this is static analysis by Vite
+	// Map src paths to static URLs
 	const modules = import.meta.glob('/src/lib/assets/images/**/*.{webp,jpg,jpeg,png,svg}', {
-		query: {
-			enhanced: true
-		}
-	});
+		eager: true,
+		query: '?url',
+		import: 'default'
+	}) as Record<string, string>;
 
-	let imageModule = $state<any>(null);
-
-	$effect(() => {
-		if (!src) return;
+	function getImageUrl(srcPath: string): string | null {
+		if (!srcPath) return null;
 
 		// Try exact match first
-		let loader = modules[src];
+		if (modules[srcPath]) return modules[srcPath];
 
-		// If not found, try finding by ending (e.g. if src is short path)
-		if (!loader) {
-			const key = Object.keys(modules).find((k) => k.endsWith(src) || src.endsWith(k));
-			if (key) loader = modules[key];
-		}
+		// Try finding by ending
+		const key = Object.keys(modules).find((k) => k.endsWith(srcPath) || srcPath.endsWith(k));
+		return key ? modules[key] : null;
+	}
 
-		if (loader) {
-			loader().then((m: any) => {
-				imageModule = m.default;
-			});
-		} else {
-			console.warn(`Image not found in glob: ${src}`);
-		}
-	});
+	const imageUrl = $derived(getImageUrl(src));
 </script>
 
-{#if imageModule}
-	<enhanced:img src={imageModule} {alt} class={className} {...rest} />
+{#if imageUrl}
+	<img src={imageUrl} {alt} class={className} loading="lazy" {...rest} />
 {:else}
-    <!-- Fallback empty or skeleton? Or just nothing until loaded? -->
-    <!-- If we render img with src, it will 404 because src is a file path, not a URL served by dev server directly unless strictly static -->
-    <!-- But for SVGs, enhanced-img might not capture them if they are excluded? My glob includes svg. -->
-    <!-- If SVG, enhanced-img might return URL string as default export? -->
-    <!-- Let's wait for load. -->
 	<div class={`bg-neutral-100 animate-pulse ${className}`} aria-label="Loading image"></div>
 {/if}
